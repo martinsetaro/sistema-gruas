@@ -1,5 +1,5 @@
 import style from '../styles/header.module.scss'
-import logDash from '../../public/assets/img/logDash.png'
+import logDash from '../../public/assets/img/ruta40.png'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 

@@ -4,7 +4,7 @@ import style from '../styles/home.module.scss';
 import React, { useState } from 'react';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
-import logEmp from '../../public/assets/img/logoEmpresa.png'
+import logEmp from '../../public/assets/img/ruta40.png'
 import { useRouter } from 'next/router'
 
 
@@ -27,7 +27,7 @@ const router = useRouter();
 const handlerEnviar = (e)=>{
   e.preventDefault();
 
-  if(user.toUpperCase() === "PEDRO" && pass === "1234"){
+  if(user.toUpperCase() === "FERNANDO" && pass === "1234"){
     Swal.fire({
       position: 'top-end',
       icon: 'success',
@@ -70,7 +70,7 @@ const handlerEnviar = (e)=>{
     </Head>
     <div className={style.container}>
       <div className={style.loginContainer}>
-        <Image src={logEmp} alt="logo" width={120} height={120}/>
+        <Image src={logEmp} alt="logo" width={180} height={180}/>
         <h2>Sistema para grúas y remolques.</h2>
         <div className={style.login}>
 

@@ -4,10 +4,13 @@
 .container 
 {
     max-width: 120rem;
-    height: 40rem;
+    height: 100vh;
     background-image: url('../../public/assets/img/fondo.webp');
     background-size: cover;
     background-position: center center;
+    @media (max-width:800px){
+        width: 100%;
+    }
   
     
     
@@ -19,11 +22,19 @@
     height: 32rem;
     display: flex;
     flex-direction: column;
+    @media (max-width:800px){
+        width: 90%;
+        margin: 0 auto;
+    }
     h2 
     {
         font-family: 'outfit';
         font-size: 3rem;
         text-align: center;
+        @media (max-width:800px){
+            font-size:1.5rem;
+            margin-top: 3rem;
+        }
     }
     img 
     {
@@ -43,6 +54,10 @@
     display: flex;
     padding: 1rem;
     flex-direction: column;
+    @media (max-width:800px){
+        width: 90%;
+        margin: 0 auto;
+    }
     input 
     {
         height: 2.5rem;
@@ -51,12 +66,25 @@
         border: .1rem solid #dcdcdc;
         outline: none;
         font-size: 1.5rem;
+        @media (max-width:800px){
+            height: 1.6rem;
+            margin-bottom: 2rem;
+         }
     }
     label 
     {
         font-family: 'outfit';
         font-size: 1.8rem;
         margin-bottom: 1rem;
+        @media (max-width:800px){
+           font-size: 1.2rem;
+        }
+    }
+}
+
+.login input::placeholder {
+    @media (max-width:800px){
+     font-size: 1rem;
     }
 }
 .btn {
