@@ -36,7 +36,7 @@ const handlerEnviar = (e)=>{
       timer: 3000
     })
   setTimeout(() => {
-    router.push('/DashBoard');
+    router.push('/Empresas');
   }, 3000);
     
   

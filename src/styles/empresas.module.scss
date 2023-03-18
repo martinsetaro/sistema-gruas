@@ -1,0 +1,64 @@
+
+
+
+
+.container 
+{
+    max-width: 120rem;
+    height: 45rem;
+    background-image: url('../../public/assets/img/fondo.webp');
+    background-size: cover;
+    background-position: center center;
+    font-family: 'outfit';
+    @media (max-width:800px){
+        width: 100%;
+    }
+  
+    
+    
+   
+}
+.table 
+{
+    width: 30rem;
+    height: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+}
+.selectores
+{
+    height: 2.5rem;
+    margin-bottom: 3rem;
+    padding-left: 1rem;
+    border: .1rem solid #dcdcdc;
+    outline: none;
+    font-size: 1.5rem;
+    @media (max-width:800px){
+        height: 1.6rem;
+        margin-bottom: 2rem;
+     }
+}
+.btn {
+    font-size:15px;
+    font-family:Arial;
+    width:200px;
+    height:50px;
+    border-width:1px;
+    color:#666666;
+    border-color:#dcdcdc;
+    font-weight:bold;
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    text-shadow:inset 0px 1px 0px #ffffff;
+    background:linear-gradient(#ffffff, #f6f6f6);
+    margin:  0 auto;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(#f6f6f6, #ffffff);
+  }
