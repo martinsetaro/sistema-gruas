@@ -2,6 +2,7 @@ import style from '../styles/header.module.scss'
 import logDash from '../../public/assets/img/ruta40.png'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const Header = () => {
 
@@ -17,7 +18,8 @@ router.push('/');
     <div className={style.header}>
         <Image src={logDash} alt="logdash" width={100} height={100}/>
         <ul>
-          <li>Registros</li>
+        <Link href="/"><li>Inicio</li></Link>
+          <Link href="/Registros"><li>Registros</li></Link>
           <li>Historial</li>
           <li>Contactos</li>
           <button 

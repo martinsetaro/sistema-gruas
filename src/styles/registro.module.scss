@@ -1,0 +1,28 @@
+
+
+.container 
+{
+    max-width: 120rem;
+    height: auto;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.containerRegistros 
+{
+    width:20rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: .1rem solid #7d7d7d;
+    line-height: .5rem;
+    padding: 1rem;
+    h2 
+    {
+        font-family: 'outfit';
+        font-size: 1rem;
+    }
+}

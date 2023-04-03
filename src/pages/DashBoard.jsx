@@ -5,6 +5,8 @@ import React, { useState , useEffect, use } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { marcas } from '../components/dbMarcas'
+import { useContext } from 'react';
+import { contexto } from '@/components/AppContext';
 
 
 
@@ -15,6 +17,9 @@ import { marcas } from '../components/dbMarcas'
 
 
 const DashBoard = () => {
+
+ const { turno , empresa } = useContext(contexto);
+
 
   const [date , setDate] = useState(new Date());
   const [marca,setMarca] = useState(marcas);
@@ -29,19 +34,9 @@ const DashBoard = () => {
   const [registroServicioNocturno,setRegistroServicioNocturno] = useState([]);
   const fecha = new Date();
 
-let registroServicio = {
-  date,
-  fabricante,
-  dominio,
-  codigo,
-  kilometrajeL,
-  kilometrajeSpp,
-  movidaLivianos,
-  movidaSpp,
-  total
-}
 
-console.log(registroServicioNocturno);
+
+
 
 
   let subTotal = (parseInt(kilometrajeL) * 140) + (parseInt(kilometrajeSpp) * 180) + (parseInt(movidaLivianos)) + (parseInt(movidaSpp));
@@ -53,6 +48,31 @@ setTotal(subTotal);
 },[subTotal])
 
 
+async function registrarFormulario(){
+
+  const response = await fetch(`http://localhost:4001/${empresa}/${turno}`,{
+    method:'POST',
+    headers:{
+      'Content-Type': 'application/json'
+
+    },
+    body:JSON.stringify({
+            fecha:date,
+            dominio:dominio,
+            marcaVehiculo:fabricante,
+            codigo:codigo,
+            kilometrajeLiviano:kilometrajeL,
+            kilometrajePesado:kilometrajeSpp,
+            movidaLiviano:movidaLivianos,
+            movidaPesado:movidaSpp,
+            total:total
+    })
+  }).then( response => response.json()).then ( data => console.log(data)).catch( err => console.log(err))
+
+
+}
+
+
 
 
 
@@ -60,9 +80,7 @@ setTotal(subTotal);
 
 const handlerRegistrar = () => {
 
-
-setRegistroServicioNocturno([...registroServicioNocturno, registroServicio]);
-
+registrarFormulario();
 
 }
 
@@ -80,6 +98,8 @@ setRegistroServicioNocturno([...registroServicioNocturno, registroServicio]);
         <Layout>
 
           <div className={style.containerDash}>
+            <h3>Nombre: {empresa}</h3>
+            <h3>Tipo de turno: {turno}</h3>
                 <h2>Servicios realizados </h2>
                 
                 <div className={style.formulario}>
