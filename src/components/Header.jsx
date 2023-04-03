@@ -21,7 +21,6 @@ router.push('/');
         <Link href="/"><li>Inicio</li></Link>
           <Link href="/Registros"><li>Registros</li></Link>
           <li>Historial</li>
-          <li>Contactos</li>
           <button 
           onClick={handlerLogout}
           className={style.btn} >Log out</button>

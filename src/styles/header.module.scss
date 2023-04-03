@@ -13,6 +13,10 @@
        height: 15rem;
        
     }
+    a 
+    {
+        text-decoration: none;
+    }
     
     ul 
     {
@@ -32,6 +36,7 @@
         font-size: 1.5rem;
         margin-right: 3rem;
         transition: all .3s ease-in-out;
+       
         @media(max-width:800px){
             margin-bottom: .3rem;
         }

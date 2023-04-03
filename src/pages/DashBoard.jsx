@@ -31,8 +31,14 @@ const DashBoard = () => {
   const [ movidaLivianos , setMovidaLivianos ] = useState(0)
   const [ movidaSpp , setMovidaSpp ] = useState(0)
   const [ total , setTotal ]= useState(0)
-  const [registroServicioNocturno,setRegistroServicioNocturno] = useState([]);
-  const fecha = new Date();
+  
+  
+  const fecha = new Date('2022-05-03');
+  var dia = fecha.getDate();
+  var mes = fecha.getMonth() + 1;
+  var anio = fecha.getFullYear();
+
+    const fecha_es = dia + '/' + mes + '/' + anio;
 
 
 
@@ -50,24 +56,33 @@ setTotal(subTotal);
 
 async function registrarFormulario(){
 
-  const response = await fetch(`http://localhost:4001/${empresa}/${turno}`,{
+  await fetch(`http://localhost:4001/${empresa}/${turno}`,{
     method:'POST',
     headers:{
       'Content-Type': 'application/json'
 
     },
     body:JSON.stringify({
-            fecha:date,
+            fecha:fecha_es,
             dominio:dominio,
             marcaVehiculo:fabricante,
             codigo:codigo,
-            kilometrajeLiviano:kilometrajeL,
-            kilometrajePesado:kilometrajeSpp,
+            kmLiviano:kilometrajeL,
+            kmPesado:kilometrajeSpp,
             movidaLiviano:movidaLivianos,
             movidaPesado:movidaSpp,
             total:total
     })
-  }).then( response => response.json()).then ( data => console.log(data)).catch( err => console.log(err))
+  }).then( response => response.json())
+  .then ( data => {
+    if(data){
+    alert("registro correcto")
+    setTimeout(() => {
+      window.location.href="/Empresas"
+    }, 2000);
+    }
+    }
+  ).catch( err => console.log(err))
 
 
 }

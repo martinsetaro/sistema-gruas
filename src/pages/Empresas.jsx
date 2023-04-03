@@ -2,6 +2,7 @@ import style from '../styles/empresas.module.scss';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
 import { contexto } from '@/components/AppContext';
+import Layout from '@/components/Layout';
 
 const Empresas = () => {
 
@@ -19,6 +20,7 @@ setTurno(tipoTurno);
 
 
   return (
+    <Layout>
     <div className={style.container}>
       
       <div className={style.table}>
@@ -45,6 +47,7 @@ setTurno(tipoTurno);
       className={style.btn}>Ingresar al sistema</button></Link>
       </div>
     </div>
+    </Layout>
   )
 }
 
