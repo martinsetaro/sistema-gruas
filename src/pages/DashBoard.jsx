@@ -56,7 +56,7 @@ setTotal(subTotal);
 
 async function registrarFormulario(){
 
-  await fetch(`http://localhost:4001/${empresa}/${turno}`,{
+  await fetch(`https://dbruta40-production.up.railway.app/${empresa}/${turno}`,{
     method:'POST',
     headers:{
       'Content-Type': 'application/json'

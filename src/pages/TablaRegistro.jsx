@@ -22,7 +22,7 @@ let anio = fecha.getFullYear();
 
 async function recibirDatos(){
 
-    const response = await fetch(`http://localhost:4001/${empresa}/${turno}`)
+    const response = await fetch(`https://dbruta40-production.up.railway.app/${empresa}/${turno}`)
     const data = await response.json();
     setDatos(data)
 }
