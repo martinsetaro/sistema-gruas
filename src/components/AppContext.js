@@ -1,5 +1,4 @@
-import { createContext } from "react";
-import React,{useState} from "react";
+import React,{useState , createContext , useEffect } from "react";
 
 
 
@@ -9,12 +8,32 @@ const {Provider} = contexto;
 
 const AppContext = ({children}) => {
 
-    const[empresa,setEmpresa] = useState('');
     const[turno,setTurno]= useState('');
+    const[empresa,setEmpresa] = useState('');
     const [registroEmpresa,setRegistroEmpresa] = useState('')
     const [registroTurno, setRegistroTurno] = useState('')
 
     console.log(empresa,turno)
+     
+    useEffect(() => {
+
+if(!empresa == '' && !turno == ''){
+    localStorage.setItem('empresas', empresa);
+    localStorage.setItem('turnos', turno);
+}else 
+{
+    setEmpresa(localStorage.getItem('empresas'))
+    setTurno(localStorage.getItem('turnos'))
+}
+        
+
+      }, [empresa, turno]);
+      
+     
+
+
+
+   
    
 
     return (
